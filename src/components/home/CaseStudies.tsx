@@ -264,107 +264,124 @@ const CaseStudies = () => {
 
       {/* Modal */}
       <Dialog open={!!selectedCase} onOpenChange={(o) => !o && setSelectedCase(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-0 rounded-3xl border-0 gap-0">
+        <DialogContent className="max-w-3xl max-h-[92vh] overflow-y-auto p-0 rounded-[2rem] border border-border/30 gap-0 shadow-2xl bg-gradient-to-b from-card to-background">
           {selectedCase && (
             <>
-              {/* Modal header image */}
-              <div className="relative">
+              {/* Hero image with gradient overlay */}
+              <div className="relative rounded-t-[2rem] overflow-hidden">
                 <BeforeAfterSlider
                   beforeImg={selectedCase.beforeImg}
                   afterImg={selectedCase.afterImg}
                   beforeLabel={selectedCase.beforeLabel}
                   afterLabel={selectedCase.afterLabel}
                 />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-card to-transparent pointer-events-none" />
               </div>
 
-              <div className="p-6 md:p-8">
-                <DialogHeader className="mb-6">
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge variant="default" className="text-[10px] font-bold uppercase tracking-wider">
-                      {selectedCase.category}
+              <div className="px-7 md:px-10 pb-8 -mt-6 relative z-10">
+                {/* Category + Tags row */}
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <Badge variant="default" className="text-[10px] font-bold uppercase tracking-wider rounded-lg px-3 py-1 shadow-md shadow-primary/20">
+                    {selectedCase.category}
+                  </Badge>
+                  {selectedCase.tags.map(t => (
+                    <Badge key={t} variant="secondary" className="text-[10px] font-medium rounded-lg px-3 py-1 bg-muted border-0">
+                      {t}
                     </Badge>
-                    {selectedCase.tags.map(t => (
-                      <Badge key={t} variant="outline" className="text-[10px] font-medium">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                  <DialogTitle className="font-display text-xl md:text-2xl font-bold leading-tight">
+                  ))}
+                </div>
+
+                <DialogHeader className="mb-8 space-y-2">
+                  <DialogTitle className="font-display text-2xl md:text-3xl font-extrabold leading-tight tracking-tight">
                     {selectedCase.title}
                   </DialogTitle>
-                  <DialogDescription className="text-primary font-body font-medium text-sm">
+                  <DialogDescription className="text-primary font-body font-semibold text-base">
                     {selectedCase.subtitle}
                   </DialogDescription>
                 </DialogHeader>
 
-                {/* Steps */}
-                <div className="space-y-6">
-                  {/* Problem */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold font-display text-sm">1</div>
-                    <div>
-                      <h4 className="font-display font-bold text-foreground text-sm mb-1">Patient Problem</h4>
+                {/* Timeline steps */}
+                <div className="relative pl-6 border-l-2 border-primary/15 space-y-8 mb-10">
+                  {/* Step 1 - Problem */}
+                  <div className="relative">
+                    <div className="absolute -left-[calc(1.5rem+5px)] top-0 w-3 h-3 rounded-full bg-destructive ring-4 ring-destructive/10" />
+                    <div className="bg-destructive/5 border border-destructive/10 rounded-2xl p-5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-destructive font-body">Step 01</span>
+                      <h4 className="font-display font-bold text-foreground mt-1 mb-2">Patient Problem</h4>
                       <p className="text-sm text-muted-foreground font-body leading-relaxed">{selectedCase.problem}</p>
                     </div>
                   </div>
 
-                  {/* Diagnosis */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold font-display text-sm">2</div>
-                    <div>
-                      <h4 className="font-display font-bold text-foreground text-sm mb-1">Diagnosis</h4>
+                  {/* Step 2 - Diagnosis */}
+                  <div className="relative">
+                    <div className="absolute -left-[calc(1.5rem+5px)] top-0 w-3 h-3 rounded-full bg-accent ring-4 ring-accent/10" />
+                    <div className="bg-accent/5 border border-accent/10 rounded-2xl p-5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-accent font-body">Step 02</span>
+                      <h4 className="font-display font-bold text-foreground mt-1 mb-2">Diagnosis</h4>
                       <p className="text-sm text-muted-foreground font-body leading-relaxed">{selectedCase.diagnosis}</p>
                     </div>
                   </div>
 
-                  {/* Treatment Plan */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold font-display text-sm">3</div>
-                    <div>
-                      <h4 className="font-display font-bold text-foreground text-sm mb-1">Treatment Plan</h4>
-                      <ul className="space-y-2 mt-2">
+                  {/* Step 3 - Treatment Plan */}
+                  <div className="relative">
+                    <div className="absolute -left-[calc(1.5rem+5px)] top-0 w-3 h-3 rounded-full bg-primary ring-4 ring-primary/10" />
+                    <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary font-body">Step 03</span>
+                      <h4 className="font-display font-bold text-foreground mt-1 mb-2">Treatment Plan</h4>
+                      <div className="grid sm:grid-cols-2 gap-2 mt-3">
                         {selectedCase.treatmentPlan.map((step, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground font-body">
-                            <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                            {step}
-                          </li>
+                          <div key={i} className="flex items-start gap-2.5 bg-background/60 rounded-xl px-3 py-2.5">
+                            <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-3 h-3 text-primary" />
+                            </div>
+                            <span className="text-sm text-muted-foreground font-body leading-snug">{step}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Result */}
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-display text-sm">4</div>
-                    <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4 flex-1">
-                      <h4 className="font-display font-bold text-foreground text-sm mb-1">Final Result</h4>
-                      <p className="text-sm text-muted-foreground font-body leading-relaxed">{selectedCase.result}</p>
+                  {/* Step 4 - Result */}
+                  <div className="relative">
+                    <div className="absolute -left-[calc(1.5rem+5px)] top-0 w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20 shadow-lg shadow-primary/30" />
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 rounded-2xl p-5 shadow-sm">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary font-body">Step 04</span>
+                      <h4 className="font-display font-bold text-foreground mt-1 mb-2">Final Result ✨</h4>
+                      <p className="text-sm text-foreground/80 font-body leading-relaxed">{selectedCase.result}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Testimonial */}
-                <div className="mt-8 bg-muted/50 rounded-2xl p-5 border border-border/50">
-                  <Quote className="w-5 h-5 text-primary mb-2" />
-                  <p className="text-sm font-body text-foreground leading-relaxed italic mb-3">
+                <div className="relative bg-gradient-to-br from-muted/80 to-muted/40 rounded-2xl p-6 border border-border/40 mb-8">
+                  <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold font-display text-sm">
+                      {selectedCase.patientName.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="text-sm font-display font-bold text-foreground">{selectedCase.patientName}</p>
+                      <p className="text-[11px] font-body text-muted-foreground">Verified Patient</p>
+                    </div>
+                  </div>
+                  <p className="text-sm font-body text-foreground/90 leading-relaxed italic">
                     "{selectedCase.testimonial}"
                   </p>
-                  <p className="text-xs font-body font-semibold text-muted-foreground">— {selectedCase.patientName}</p>
                 </div>
 
                 {/* Doctor + CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-border/50">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-border/30">
                   <div className="flex items-center gap-3">
-                    <img src={doctorImg} alt="Dr. Kamil" className="w-10 h-10 rounded-full object-cover border-2 border-primary/20" />
+                    <img src={doctorImg} alt="Dr. Kamil" className="w-12 h-12 rounded-full object-cover border-2 border-primary/20 shadow-md" />
                     <div>
                       <p className="text-sm font-display font-bold text-foreground">Dr. Kamil Shahnawaz</p>
                       <p className="text-xs font-body text-muted-foreground">MDS · Conservative Dentistry</p>
                     </div>
                   </div>
-                  <Button asChild className="rounded-full px-8 font-body font-semibold shadow-lg shadow-primary/20">
+                  <Button asChild size="lg" className="rounded-full px-8 font-body font-semibold shadow-xl shadow-primary/25 h-12 group">
                     <Link to="/book-appointment">
                       Book Your Transformation
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </div>
