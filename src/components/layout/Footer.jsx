@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Facebook,
-  Instagram,
-  Youtube,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const services = [
   "Root Canal Treatment",
