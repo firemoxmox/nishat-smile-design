@@ -26,7 +26,7 @@ const CTABanner = () => (
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full px-8 text-sm font-body font-semibold border-background/20 text-background hover:bg-background/10 h-14">
+          <Button asChild size="lg" variant="outline" className="rounded-full px-8 text-sm font-body font-semibold border-background/20 text-secondary-foreground hover:bg-background/10 h-14">
             <a href="tel:+919876543210">
               <Phone className="w-4 h-4 mr-2" />
               +91 98765 43210
