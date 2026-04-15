@@ -1,48 +1,39 @@
 
 
-# Nishat Dental & Healthcare — Website Plan
+# Add "Real Smile Transformations" Case Studies Section
 
-## Overview
-A premium, mobile-first dental clinic website with 5 pages, designed to build trust and drive appointment bookings via call and WhatsApp. Clean white + blue + light green medical aesthetic.
+## What We're Building
+A premium "Case Studies" section on the landing page with before/after comparison cards and a detailed modal popup — matching the design from your screenshots.
 
-## Design System
-- **Colors**: White background, primary blue (#0EA5E9), accent light green (#4ADE80), dark text (#1E293B)
-- **Style**: Soft shadows, rounded cards, smooth animations, premium medical feel inspired by Apollo/Clove Dental
-- **Typography**: Clean sans-serif, large headings, readable body text
+## Section Design
 
-## Pages & Structure
+### Landing Page Cards (3 cards in a row)
+- **Header**: "CASE STUDIES" label, bold "Real Smile Transformations" heading, subtitle, and trust badges (Dr. Kamil Shahnawaz MDS, 1000+ Treatments, tagline)
+- **Each card**: Split before/after image comparison with a swap icon in the center, labeled overlays ("Infected & Painful" / "Pain-Free & Saved"), treatment tags (Root Canal, Single Sitting, etc.), title, and teal subtitle
+- **Hover effect**: "View Case Study" button appears over the card on hover
+- **Footer**: "Drag the slider" hint text + "View All Smile Transformations" CTA button
 
-### 1. Homepage
-- **Hero**: "Advanced Dental Care in Darbhanga" with gradient overlay, CTA buttons (Book Appointment + Call Now)
-- **Trust Bar**: 12+ Years Experience · 1000+ Happy Patients · Modern Equipment · Sterilized Environment (animated counters)
-- **About Doctor**: Dr. Kamil Shahnawaz intro with uploaded photo, credentials, short bio
-- **Services Grid**: 7 service cards (RCT, Whitening, Implants, Braces, Extraction, Crowns, Kids Dentistry) with icons & descriptions
-- **Why Choose Us**: 5 reasons with icons in a clean grid
-- **Patient Testimonials**: 4-5 review cards in a carousel/grid
-- **Gallery**: Clinic photos using the uploaded images
-- **CTA Banner**: "Book Your Appointment Today" with WhatsApp + Phone buttons
-- **Contact Section**: Address, phone, working hours, embedded Google Maps
-- **Footer**: Quick links, services, contact info, social links
+### Case Study Modal (opens on card click)
+- Large before/after image comparison at top
+- Treatment badge + title + subtitle
+- Detail tags (Single Sitting, Complex Case, 34 years Male)
+- Numbered steps: (1) Patient Problem, (2) Diagnosis, (3) Treatment Plan (with checkmark list), (4) Final Result (highlighted in light teal)
+- Patient testimonial quote block
+- Doctor attribution footer with "Book Your Transformation" CTA
 
-### 2. About Page
-- Detailed doctor profile with photo and credentials
-- Clinic story and mission
-- Awards/recognitions (using uploaded award ceremony photo)
+## Technical Plan
 
-### 3. Services Page
-- Detailed cards for each service with descriptions, benefits, and CTA
+1. **Create `src/components/home/CaseStudies.tsx`**
+   - Self-contained component with 3 hardcoded case studies (Root Canal, Dental Implant, Braces & Aligners)
+   - Uses existing clinic images as before/after placeholders
+   - Before/after slider using CSS clip-path or positioned divs with a draggable divider
+   - Hover overlay with "View Case Study" glassmorphic button
+   - Modal using shadcn Dialog component with full case details (problem, diagnosis, treatment plan, result, testimonial)
 
-### 4. Contact Page
-- Contact form, Google Maps embed, address, phone, WhatsApp link, working hours
+2. **Update `src/pages/Index.tsx`**
+   - Import and add `<CaseStudies />` between Testimonials and Gallery sections
 
-### 5. Book Appointment Page
-- Simple appointment form (name, phone, service, preferred date/time)
-- WhatsApp quick-book option
-
-## Global Features
-- **Floating WhatsApp button** (bottom-right, all pages)
-- **Sticky call bar** on mobile (bottom of screen)
-- **Responsive navbar** with mobile hamburger menu
-- **SEO-optimized** headings and meta tags targeting Darbhanga dental keywords
-- **Uploaded images** will be used for clinic gallery and doctor/award photos
+## Data Structure (hardcoded in component)
+- 3 cases: Root Canal, Dental Implant, Braces & Aligners
+- Each with: before/after images, labels, tags, title, subtitle, detailed steps, patient quote
 
