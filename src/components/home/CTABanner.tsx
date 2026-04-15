@@ -3,37 +3,39 @@ import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTABanner = () => (
-  <section className="relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-br from-[hsl(195,85%,15%)] via-[hsl(195,80%,22%)] to-[hsl(180,60%,28%)]" />
+  <section className="relative overflow-hidden bg-foreground">
+    {/* Decorative */}
+    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px]" />
+    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/15 rounded-full blur-[120px]" />
 
-    <div className="relative container mx-auto px-4 py-20 md:py-24">
+    <div className="relative container mx-auto px-4 py-20 md:py-28">
       <div className="max-w-2xl mx-auto text-center">
-        <span className="inline-block text-accent font-semibold text-xs uppercase tracking-widest font-body mb-4">Book Your Visit</span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-white mb-5 leading-tight">
-          Your Perfect Smile is{" "}
-          <em className="italic text-accent not-italic font-display">Just One</em>
-          <br />Appointment Away
+        <span className="inline-block text-primary font-semibold text-xs uppercase tracking-widest font-body mb-6">Book Your Visit</span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-background leading-tight mb-5">
+          Your perfect smile is
+          <br />
+          <span className="text-primary">just one visit away</span>
         </h2>
-        <p className="text-white/60 font-body mb-10 max-w-lg mx-auto text-sm">
+        <p className="text-background/50 font-body mb-10 max-w-lg mx-auto">
           Don't wait for the perfect moment. Schedule your visit today and let us take care of your dental health.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button asChild size="lg" className="rounded-full px-8 text-sm font-body font-semibold shadow-xl h-12 bg-accent hover:bg-accent/90 text-accent-foreground">
+          <Button asChild size="lg" className="rounded-full px-10 text-sm font-body font-semibold shadow-xl h-14 group">
             <Link to="/book-appointment">
               Book Appointment
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full px-8 text-sm font-body font-semibold border-white/30 text-white hover:bg-white/10 h-12">
+          <Button asChild size="lg" variant="outline" className="rounded-full px-8 text-sm font-body font-semibold border-background/20 text-background hover:bg-background/10 h-14">
             <a href="tel:+919876543210">
               <Phone className="w-4 h-4 mr-2" />
-              Call Now
+              +91 98765 43210
             </a>
           </Button>
-          <Button asChild size="lg" className="rounded-full px-8 text-sm font-body font-semibold h-12 bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white">
-            <a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer">
+          <Button asChild size="lg" className="rounded-full px-8 text-sm font-body font-semibold h-14 bg-[hsl(142,70%,42%)] hover:bg-[hsl(142,70%,38%)] text-white">
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-4 h-4 mr-2" />
-              WhatsApp Us
+              WhatsApp
             </a>
           </Button>
         </div>
