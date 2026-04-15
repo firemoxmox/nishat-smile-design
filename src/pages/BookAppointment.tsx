@@ -39,7 +39,8 @@ export default function BookAppointment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.entities.Appointment.create(form);
+    // Simulate submission delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setSubmitting(false);
     setSubmitted(true);
   };
