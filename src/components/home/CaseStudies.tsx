@@ -264,7 +264,7 @@ const CaseStudies = () => {
 
       {/* Modal */}
       <Dialog open={!!selectedCase} onOpenChange={(o) => !o && setSelectedCase(null)}>
-        <DialogContent className="max-w-3xl max-h-[92vh] overflow-y-auto p-0 rounded-[2rem] border border-border/30 gap-0 shadow-2xl bg-gradient-to-b from-card to-background [&~.fixed]:backdrop-blur-md">
+        <DialogContent className="max-w-3xl max-h-[92vh] overflow-y-auto p-0 rounded-[2rem] border border-border/30 gap-0 shadow-2xl bg-gradient-to-b from-card to-background">
           {selectedCase && (
             <>
               {/* Hero image with gradient overlay */}
