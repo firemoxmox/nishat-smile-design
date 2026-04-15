@@ -145,7 +145,7 @@ const BookAppointment = () => {
                         <Button
                           type="button"
                           onClick={() => form.name.trim() && form.phone.trim() ? setStep(2) : toast({ title: "Please fill name & phone", variant: "destructive" })}
-                          className="w-full rounded-full font-body shadow-lg shadow-primary/20 group h-13 text-base mt-8"
+                          className="w-full rounded-full font-body shadow-lg shadow-primary/20 group h-13 text-base mt-8 py-[8px]"
                           size="lg"
                         >
                           Continue
