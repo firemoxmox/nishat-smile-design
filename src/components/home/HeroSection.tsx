@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Play, Star, Shield, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import doctorImg from "@/assets/doctor-portrait.jpg";
+import doctorImg from "@/assets/dr-kamil.png";
 import happyPatient from "@/assets/happy-patient.jpg";
 import modernClinic from "@/assets/modern-clinic.jpg";
 
