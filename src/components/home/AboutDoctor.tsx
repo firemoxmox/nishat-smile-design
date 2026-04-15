@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Quote } from "lucide-react";
-import doctorImg from "@/assets/doctor-portrait.jpg";
+import doctorImg from "@/assets/dr-kamil.png";
 import clinicImg from "@/assets/clinic-1.png";
 
 const highlights = [
