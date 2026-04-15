@@ -310,7 +310,7 @@ const CaseStudies = () => {
 
                   {/* Diagnosis */}
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-600 font-bold font-display text-sm">2</div>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold font-display text-sm">2</div>
                     <div>
                       <h4 className="font-display font-bold text-foreground text-sm mb-1">Diagnosis</h4>
                       <p className="text-sm text-muted-foreground font-body leading-relaxed">{selectedCase.diagnosis}</p>
