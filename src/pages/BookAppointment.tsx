@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -39,7 +39,8 @@ export default function BookAppointment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.entities.Appointment.create(form);
+    // Simulate submission delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setSubmitting(false);
     setSubmitted(true);
   };
