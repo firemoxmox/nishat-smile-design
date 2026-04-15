@@ -71,7 +71,7 @@ const About = () => (
             { icon: Target, title: "Our Mission", desc: "To provide world-class dental care in Darbhanga with compassion and advanced technology." },
             { icon: Heart, title: "Patient First", desc: "Every treatment plan is personalized to your needs, budget, and comfort level." },
             { icon: Award, title: "Excellence", desc: "Recognized for outstanding dental care and contribution to healthcare in Bihar." },
-            { icon: Users, title: "Community", desc: "Proudly serving the Darbhanga community with affordable, accessible dental care." },
+            { icon: Users, title: "Community ", desc: "Proudly serving the Darbhanga community with affordable, accessible dental care." },
           ].map((item) => (
             <div key={item.title} className="bg-card rounded-2xl p-6 border border-border/50 text-center hover:shadow-xl hover:shadow-primary/5 transition-all">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mx-auto mb-5">
